@@ -1,0 +1,409 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<GL/glut.h>
+void keys(unsigned char key,int x,int y);
+int start=-1;
+
+void display(void);
+void inst(void);
+void drawstring(float x,float y,float z,char *str)
+{
+int i,len;
+len=strlen(str);
+glRasterPos3f(x,y,z);
+for(i=0;i<len;i++)
+glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,(int)str[i]);
+}
+
+void inst(void)
+{
+glClearColor(0.5,0.,0,1.0);
+glClear(GL_COLOR_BUFFER_BIT);
+glColor3f(1.0,0.088235,0.016376471);
+drawstring(250.0,650.0,0.0," Sambhram INSTITUTE OF TECHNOLOGY ");
+glColor3f(0.7899,0.656710,0.79766111);
+drawstring(270.0,600.0,0.0,"DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING");
+glColor3f(1.0,1.0,0.65766111);
+drawstring(520.0,500.0,0.0,"MINI PROJECT ON");
+glColor3f(0.5803921,0.83607843,0.73607843);
+drawstring(470.0,450.0,0.0,"INTERFERENCE OF LIGHT");
+glColor3f(1.0,0.36710,0.35766111);
+drawstring(40.0,350.0,0.0,"SUBMITTED BY");
+glColor3f(0.7303921,0.3607843,0.9607843);
+drawstring(40.0,320.0,0.0," Prajwal DP");
+drawstring(40.0,290.0,0.0,"(1ST19CS096)");
+drawstring(40.0,255.0,0.0,"SUHAS J");
+drawstring(40.0,225.0,0.0,"(1ST19CS097)");
+glColor3f(1.0,0.36710,0.35766111);
+drawstring(900.0,355.0,0.0,"GUIDED BY");
+glColor3f(0.703921,0.3607843,0.9607843);
+drawstring(900.0,320.0,0.0,"POOJA M V");
+drawstring(900.0,290.0,0.0,"");
+drawstring(550.0,20.0,0.0,"Right Click to continue");
+glFlush();
+glutSwapBuffers();
+}
+
+
+
+void polygon(float x1,float y1,float x2,float y2,float x3,float y3,float x4,float y4)
+{
+
+glBegin(GL_POLYGON);
+glVertex2f(x1,y1);
+glVertex2f(x2,y2);
+glVertex2f(x3,y3);
+glVertex2f(x4,y4);
+glEnd();
+
+}
+void stand2()
+{
+glLineWidth(15.0);
+glColor3f(0.545098939,0.137254902,0.137254902);
+glBegin(GL_LINES);
+glVertex2f(170,130);
+glVertex2f(170,80);
+glVertex2f(130,80);
+glVertex2f(130,97);
+glVertex2f(130,80);
+glVertex2f(170,80);
+glVertex2f(150,80);
+glVertex2f(150,60);
+glVertex2f(140,60);
+glVertex2f(160,60);
+glEnd();
+}
+
+void light1()
+{
+
+glColor3f(0.162749096,0.131372549,1);
+polygon(100,80,80,110,180,160,200,130);
+glColor3f(0.309250686,0.309250686,0.309250686);
+polygon(180,160,200,130,260,130,215,210);
+stand2();
+
+}
+
+void light2()
+{
+glColor3f(0.162749096,0.131372549,1);
+polygon(100,80,80,110,180,160,200,130);
+glColor3f(0.309250686,0.309250686,0.3092506861);
+polygon(180,160,200,130,260,130,215,210);
+glColor3f(0.999988897,0.99999888,0.6568797967);
+polygon(253,145,222,195,900,550,1200,300);
+stand2();
+
+}
+void stand()
+{
+glLineWidth(10.0);
+glColor3f(0.545098939,0.137254902,0.137254902);
+glBegin(GL_LINES);
+glVertex2f(980,490);
+glVertex2f(980,70);
+glVertex2f(1170,360);
+glVertex2f(1170,40);
+glVertex2f(950,70);
+glVertex2f(1010,70);
+glVertex2f(1140,40);
+glVertex2f(1200,40);
+glEnd();
+
+}
+void stand1()
+{
+glLineWidth(10.0);
+glColor3f(0.545098939,0.137254902,0.137254902);
+glBegin(GL_LINES);
+glVertex2f(40,350);
+glVertex2f(40,70);
+glVertex2f(80,300);
+glVertex2f(80,40);
+glVertex2f(25,70);
+glVertex2f(55,70);
+glVertex2f(65,40);
+glVertex2f(95,40);
+glEnd();
+
+}
+void screen3()
+{
+stand();
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(900,650,1250,550,1250,250,900,350);
+
+
+}
+void screen2()
+{
+stand();
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(900,650,1250,550,1250,250,900,350);
+glColor3f(0.999988897,0.99999888,0.6568797967);
+polygon(1000,575,1030,565,1030,370,1000,380);
+polygon(1150,530,1120,540,1120,345,1150,335);
+}
+void screen4()
+{
+stand();
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(900,350,900,650,935,640,935,340);
+glColor3f(1.0,843137254902,0.0);
+polygon(935,640,935,340,970,330,970,630);
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(970,330,970,630,1005,620,1005,320);
+glColor3f(1.0,843137254902,0.0);
+polygon(1005,620,1005,320,1040,310,1040,610);
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(1040,310,1040,610,1075,600,1075,300);
+glColor3f(1.0,843137254902,0.0);
+polygon(1075,600,1075,300,1110,290,1110,590);
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(1110,290,1110,590,1145,580,1145,280);
+glColor3f(1.0,843137254902,0.0);
+polygon(1145,580,1145,280,1180,270,1180,570);
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(1180,270,1180,570,1215,560,1215,260);
+glColor3f(1.0,843137254902,0.0);
+polygon(1215,560,1215,260,1250,250,1250,550);
+
+}
+
+void screen1()
+{
+
+stand();
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(900,650,1250,550,1250,250,900,350);
+glColor3f(0.12222,0.111111,0.211110);
+polygon(1000,575,1030,565,1030,370,1000,380);
+polygon(1150,530,1120,540,1120,345,1150,335);
+}
+void screen5()
+{
+
+stand1();
+glColor3f(0.376470588235,0.376470588235,0.376470588235);
+polygon(10,600,110,500,110,200,10,300);
+glColor3f(0.999988897,0.99999888,0.6568797967);
+polygon(30,525,40,515,40,320,30,330);
+polygon(90,480,80,490,80,295,90,285);
+}
+
+void concentric_circles(float x,float y,int i)
+{
+float angle,rad1,rad2;
+glBegin(GL_POINTS);
+for(angle=0.0;angle<=60; angle+=0.1)
+{
+rad1= 3.14*angle/180;rad2=3.14*(360-angle)/180;
+glVertex2f(x+i*cos(rad1),y+i*sin(rad1));
+glVertex2f( x+i*cos(rad2),y+i*sin(rad2));
+}
+glEnd();
+glFlush();
+}
+void scene4()
+{
+int i,k,l;
+glClearColor(0.12222,0.111111,0.211110,1.0);
+glColor3f(0.890196078,0.188235294,0.376470588);
+drawstring(50,670,0.0,"Fringes formed on the screen due to INTERFERENCE");
+drawstring(50,640,0.0,"Press 'E' for exit");
+drawstring(1000,30,0.0,"Screen");
+drawstring(50.0,20.0,0.0,"Double slits");
+drawstring(1050.0,660.0,0.0,"Dark & Bright fringes");
+drawstring(500.0,30.0,0.0,"Press 's' for stop\n 'r' for restart");
+glColor3f(1.0,1.0,1.0);
+glLineWidth(1.0);
+glBegin(GL_LINES);
+glVertex2f(1160,550);
+glVertex2f(1180,658);
+glVertex2f(1220,500);
+glVertex2f(1180,658);
+glEnd();
+screen5();
+screen4();
+glColor3f(0.999988897,0.99999888,0.6568797967);
+if((start!=6))
+	{
+for(i=10;i<800;i=i+20)
+{
+
+	concentric_circles(90,420,i);
+	concentric_circles(90,300,i);
+	for(k=0;k<30000;k++);
+	}
+}
+
+glFlush();
+glutPostRedisplay();
+glFlush();
+}
+
+void scene1()
+{
+glClearColor(0.12222,0.111111,0.211110,1.0);
+glColor3f(0.890196078,0.188235294,0.376470588);
+drawstring(50.0,30.0,0.0,"Light Source");
+drawstring(900.0,30.0,0.0,"Double slits");
+drawstring(50,670,0.0,"Press 'M' for next scene");
+screen1();
+light1();
+glutPostRedisplay();
+glFlush();
+}
+void scene2()
+{
+glClearColor(0.12222,0.111111,0.211110,1.0);
+glColor3f(0.890196078,0.188235294,0.376470588);
+drawstring(50,670,0.0,"Coherent light source passing through the slits");
+drawstring(50,640,0.0,"Press 'K' for next scene");
+drawstring(50.0,30.0,0.0,"Light Source");
+drawstring(900.0,30.0,0.0,"Double slits");
+light2();
+screen2();
+glutPostRedisplay();
+glFlush();
+}
+
+void scene3()
+{
+int i,k;
+glClearColor(0.12222,0.111111,0.211110,1.0);
+glColor3f(0.890196078,0.188235294,0.376470588);
+drawstring(50,670,0.0,"Formation of Interference Pattern");
+drawstring(1000,30,0.0,"Screen");
+drawstring(50.0,20.0,0.0,"Double slits");
+screen5();
+screen3();
+glColor3f(0.999988897,0.99999888,0.6568797967);
+for(i=10;i<800;i=i+20)
+{
+concentric_circles(90,420,i);
+concentric_circles(90,300,i);
+for(k=0;k<10000000;k++);
+}
+keys('l',0,0);
+glFlush();
+}
+
+
+void init()
+{
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+gluOrtho2D(0.0,1300.0,0.0,700.0);
+}
+
+void display()
+{
+
+glClear(GL_COLOR_BUFFER_BIT);
+if(start==-1)
+	 inst();
+switch(start)
+{
+case 0:inst();
+break;
+case 1:scene1();
+break;
+case 2:scene2();
+break;
+case 3:scene3();
+break;
+case 4:scene4();
+break;
+case 5:exit(0);
+
+
+ }
+glutSwapBuffers();
+}
+
+void mouse(int btn,int state,int x,int y)
+{
+printf("%d\t\t%d\n",x,y);
+if(btn==GLUT_LEFT_BUTTON&&state==GLUT_DOWN)
+{
+if(start==-1)
+{
+start=0;
+display();
+}
+}
+if(btn==GLUT_RIGHT_BUTTON&&state==GLUT_DOWN)
+{
+start=1;
+display();
+}
+if(btn==GLUT_MIDDLE_BUTTON&&state==GLUT_DOWN)
+{
+start=2;
+display();
+}
+
+}
+
+void keys(unsigned char key,int x,int y)
+{
+
+if(key=='i')
+{
+start=0;
+display();
+}
+if(key=='n')
+{
+start=1;
+display();
+}
+if(key=='m')
+{
+start=2;
+display();
+}
+if(key=='k')
+{
+start=3;
+display();
+}
+if(key=='l')
+{
+start=4;
+display();
+}
+if(key=='e')
+{
+start=5;
+display();
+}
+if(key=='s')
+{
+	start=6;
+}
+if(key=='r') {
+	start=4;
+display();
+}
+}
+
+int main(int argc,char **argv)
+{
+glutInit(&argc,argv);
+glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
+glutInitWindowSize(1300,700);
+glutInitWindowPosition(0.0,0.0);
+glutCreateWindow("INTERFERENCE OF LIGHT");
+glutMouseFunc(mouse);
+glutKeyboardFunc(keys);
+glutDisplayFunc(display);
+init();
+glutPostRedisplay();
+glutMainLoop();
+}
+
